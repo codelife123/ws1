@@ -136,6 +136,7 @@ export default function Home() {
         className="section-padding relative"
         style={{
           background: 'url(/service-bg.jpg) center/cover no-repeat',
+          backgroundAttachment: 'fixed',
           position: 'relative',
           overflow: 'hidden',
         }}
