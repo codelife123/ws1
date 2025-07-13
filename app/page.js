@@ -18,6 +18,7 @@ const galleryImages = [
   { src: "/project-work/image6.jpg" },
   { src: "/project-work/image8.jpg" },
   { src: "/project-work/image1.jpg" },
+  { src: "/project-work/image10.jpg" },
 ];
 
 export default function Home() {
