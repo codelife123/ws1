@@ -8,7 +8,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center">
-              <h1 className="text-2xl font-bold text-primary">Ranga Iron Work</h1>
+              <h1 className="text-2xl font-bold text-primary">Ranga Iron Works</h1>
             </div>
             <div className="hidden md:flex space-x-8">
               <a href="#home" className="text-gray-700 hover:text-primary transition-colors">Home</a>
@@ -32,8 +32,8 @@ export default function Home() {
       <section id="home" className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-gray-800 to-primary">
         <div className="absolute inset-0 bg-black/50"></div>
         <div className="relative z-10 text-center text-white max-w-4xl mx-auto px-4">
-          <h1 className="text-5xl md:text-7xl font-bold mb-6">
-            Ranga Iron Work
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 font-anton">
+            Ranga Iron Works
           </h1>
           <p className="text-xl md:text-2xl mb-8 text-gray-200">
             Professional Welding & Iron Workshop
@@ -57,7 +57,7 @@ export default function Home() {
       <section id="about" className="section-padding bg-white" style={{ minHeight: '100vh' }}>
         <div className="max-w-7xl mx-auto">
           <div className="mb-16 text-left">
-            <h2 className="text-4xl font-extrabold text-primary mb-4 uppercase">About <span className="text-[color:var(--color-accent)]">Ranga Iron Work</span></h2>
+            <h2 className="text-4xl font-extrabold text-primary mb-4 uppercase">About <span className="text-[color:var(--color-accent)]">Ranga Iron Works</span></h2>
             <p className="text-xl text-gray-700 max-w-3xl">
               We are a professional welding and iron workshop dedicated to delivering high-quality metal fabrication services.
             </p>
@@ -66,7 +66,7 @@ export default function Home() {
             {/* Left: Image (founder) */}
             <div className="flex justify-center">
               <div className="rounded-xl overflow-hidden shadow-2xl border border-gray-200 bg-gray-100 max-w-xl w-full">
-                <img src="/founder01.jpg" alt="About Ranga Iron Work Founder" className="object-cover w-full h-[40rem] sm:h-[32rem] md:h-[36rem] lg:h-[40rem]" />
+                <img src="/founder01.jpg" alt="About Ranga Iron Works Founder" className="object-cover w-full h-[40rem] sm:h-[32rem] md:h-[36rem] lg:h-[40rem]" />
               </div>
             </div>
             {/* Right: Content */}
@@ -94,7 +94,7 @@ export default function Home() {
               </ul>
               <div className="text-gray-600 text-base leading-relaxed">
                 <p className="mb-4">
-                  Founded with a passion for quality metalwork, Ranga Iron Work has been serving our community with professional welding and fabrication services for years.
+                  Founded with a passion for quality metalwork, Ranga Iron Works has been serving our community with professional welding and fabrication services for years.
                 </p>
                 <p>
                   We specialize in structural welding, custom metal fabrication, and industrial solutions, ensuring every project meets the highest standards of quality and safety.
@@ -419,7 +419,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-4 gap-8">
             <div className="md:col-span-2">
-              <h3 className="text-2xl font-bold mb-4">Ranga Iron Work</h3>
+              <h3 className="text-2xl font-bold mb-4">Ranga Iron Works</h3>
               <p className="text-gray-300 mb-6">
                 Professional welding and iron work services. Quality craftsmanship you can trust for all your metal fabrication needs.
               </p>
@@ -464,7 +464,7 @@ export default function Home() {
           </div>
           
           <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-300">
-            <p>&copy; 2024 Ranga Iron Work. All rights reserved.</p>
+            <p>&copy; 2024 Ranga Iron Works. All rights reserved.</p>
           </div>
         </div>
       </footer>
