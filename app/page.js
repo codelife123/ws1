@@ -131,8 +131,28 @@ export default function Home() {
       </section>
 
       {/* Services Section */}
-      <section id="services" className="section-padding relative" style={{ background: 'linear-gradient(rgba(48,56,73,0.98),rgba(48,56,73,0.98)), url(/welding-bg.jpg) center/cover, #303849' }}>
-        <div className="max-w-7xl mx-auto">
+      <section
+        id="services"
+        className="section-padding relative"
+        style={{
+          background: 'url(/service-bg.jpg) center/cover no-repeat',
+          position: 'relative',
+          overflow: 'hidden',
+        }}
+      >
+        {/* Overlay */}
+        <div
+          style={{
+            position: 'absolute',
+            inset: 0,
+            background: '#23222d',
+            opacity: 0.6,
+            zIndex: 1,
+            pointerEvents: 'none',
+          }}
+        />
+        {/* Content */}
+        <div className="max-w-7xl mx-auto relative z-10">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-extrabold text-white mb-2 tracking-wide">
               OUR <span className="text-[color:var(--color-accent)]">SERVICES</span>
