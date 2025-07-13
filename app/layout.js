@@ -16,7 +16,11 @@ export const metadata = {
   description: "Professional welding and iron work services. Custom metal fabrication, structural welding, and industrial solutions. Quality workmanship you can trust.",
   keywords: "welding, iron works, metal fabrication, structural welding, industrial welding, custom metal work",
   authors: [{ name: "Ranga Iron Works" }],
-  viewport: "width=device-width, initial-scale=1",
+};
+
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
 };
 
 export default function RootLayout({ children }) {

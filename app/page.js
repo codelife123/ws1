@@ -2,23 +2,53 @@
 
 import Image from "next/image";
 import "keen-slider/keen-slider.min.css";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 import { useKeenSlider } from "keen-slider/react";
+import Video from "yet-another-react-lightbox/plugins/video";
 
 const galleryImages = [
   { src: "/project-work/image1.jpg" },
   { src: "/project-work/image2.jpg" },
+  { src: "/project-work/video1.mp4", type: "video" },
   { src: "/project-work/image3.jpg" },
   { src: "/project-work/image4.jpg" },
   { src: "/project-work/image5.jpg" },
   { src: "/project-work/image6.jpg" },
+  { src: "/project-work/image8.jpg" },
+  { src: "/project-work/image9.jpg" },
 ];
 
 export default function Home() {
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [lightboxIndex, setLightboxIndex] = useState(0);
+  const [playingVideos, setPlayingVideos] = useState(new Set());
+  const videoRefs = useRef({});
+
+  const handleVideoPlay = (videoIndex) => {
+    // Stop all other videos
+    const newPlayingVideos = new Set([videoIndex]);
+    setPlayingVideos(newPlayingVideos);
+    
+    // Pause carousel autoplay
+    if (instanceRef.current) {
+      instanceRef.current.container.dispatchEvent(new Event('mouseover'));
+    }
+  };
+
+  const handleVideoPause = (videoIndex) => {
+    // Remove this video from playing set
+    const newPlayingVideos = new Set(playingVideos);
+    newPlayingVideos.delete(videoIndex);
+    setPlayingVideos(newPlayingVideos);
+    
+    // Resume carousel autoplay if no videos are playing
+    if (newPlayingVideos.size === 0 && instanceRef.current) {
+      instanceRef.current.container.dispatchEvent(new Event('mouseout'));
+    }
+  };
+
   const [sliderRef, instanceRef] = useKeenSlider({
     loop: true,
     slides: { perView: 3, spacing: 24 },
@@ -333,16 +363,54 @@ export default function Home() {
                 className="keen-slider__slide flex items-center justify-center cursor-pointer"
                 style={{ minHeight: 320 }}
                 onClick={() => {
-                  setLightboxIndex(idx);
-                  setLightboxOpen(true);
+                  if (img.type !== "video") {
+                    setLightboxIndex(idx);
+                    setLightboxOpen(true);
+                  }
                 }}
               >
-                <img
-                  src={img.src}
-                  alt={`Gallery image ${idx + 1}`}
-                  className="rounded-xl shadow-lg object-cover w-full h-80 max-h-[22rem] max-w-full"
-                  style={{ aspectRatio: '4/3', objectFit: 'cover' }}
-                />
+                {img.type === "video" ? (
+                  <div className="relative w-full h-80 max-h-[22rem] max-w-full flex items-center justify-center bg-black rounded-xl">
+                    <video
+                      ref={(el) => {
+                        if (el) videoRefs.current[idx] = el;
+                      }}
+                      src={img.src}
+                      className="object-cover w-full h-80 max-h-[22rem] rounded-xl"
+                      style={{ aspectRatio: '4/3', objectFit: 'cover' }}
+                      preload="metadata"
+                      muted
+                      playsInline
+                      controls={playingVideos.has(idx)}
+                      onPlay={() => handleVideoPlay(idx)}
+                      onPause={() => handleVideoPause(idx)}
+                      onEnded={() => handleVideoPause(idx)}
+                    />
+                    {!playingVideos.has(idx) && (
+                      <div 
+                        className="absolute inset-0 flex items-center justify-center cursor-pointer"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          if (videoRefs.current[idx]) {
+                            videoRefs.current[idx].play();
+                          }
+                        }}
+                      >
+                        <svg width="64" height="64" viewBox="0 0 64 64" fill="none" className="drop-shadow-lg">
+                          <circle cx="32" cy="32" r="32" fill="rgba(48,56,73,0.7)" />
+                          <polygon points="26,20 48,32 26,44" fill="#f2c014" />
+                        </svg>
+                      </div>
+                    )}
+                  </div>
+                ) : (
+                  <img
+                    src={img.src}
+                    alt={`Gallery image ${idx + 1}`}
+                    className="rounded-xl shadow-lg object-cover w-full h-80 max-h-[22rem] max-w-full"
+                    style={{ aspectRatio: '4/3', objectFit: 'cover' }}
+                  />
+                )}
               </div>
             ))}
           </div>
@@ -377,9 +445,10 @@ export default function Home() {
           <Lightbox
             open={lightboxOpen}
             close={() => setLightboxOpen(false)}
-            slides={galleryImages.map((img) => ({ src: img.src }))}
+            slides={galleryImages.map((img) => img.type === "video" ? { type: "video", src: img.src } : { src: img.src })}
             index={lightboxIndex}
             on={{ view: ({ index }) => setLightboxIndex(index) }}
+            plugins={[Video]}
           />
         </div>
       </section>
