@@ -9,15 +9,15 @@ import { useKeenSlider } from "keen-slider/react";
 import Video from "yet-another-react-lightbox/plugins/video";
 
 const galleryImages = [
-  { src: "/project-work/image1.jpg" },
-  { src: "/project-work/image2.jpg" },
+  { src: "/project-work/image9.jpg" },
   { src: "/project-work/video1.mp4", type: "video" },
+  { src: "/project-work/image2.jpg" },
   { src: "/project-work/image3.jpg" },
   { src: "/project-work/image4.jpg" },
   { src: "/project-work/image5.jpg" },
   { src: "/project-work/image6.jpg" },
   { src: "/project-work/image8.jpg" },
-  { src: "/project-work/image9.jpg" },
+  { src: "/project-work/image1.jpg" },
 ];
 
 export default function Home() {
@@ -454,75 +454,84 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="section-padding bg-white">
-        <div className="max-w-7xl mx-auto">
+      <section
+        id="contact"
+        className="section-padding relative"
+        style={{
+          background: 'url(/contact-bg.jpg) center/cover no-repeat',
+          position: 'relative',
+          overflow: 'hidden',
+        }}
+      >
+        {/* Overlay */}
+        <div
+          style={{
+            position: 'absolute',
+            inset: 0,
+            background: 'rgba(35,34,45,0.8)',
+            zIndex: 1,
+          }}
+        />
+        <div className="max-w-7xl mx-auto relative z-10">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Contact Us</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <h2 className="text-4xl font-bold text-white mb-4">Contact Us</h2>
+            <p className="text-xl text-gray-200 max-w-3xl mx-auto">
               Ready to start your project? Get in touch with us for a free consultation and quote.
             </p>
           </div>
-          
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Contact Form */}
-            <div className="bg-gray-light p-8 rounded-lg">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Send us a Message</h3>
+            <div className="bg-[#303849]/90 p-8 rounded-lg shadow-xl">
+              <h3 className="text-2xl font-bold text-white mb-6">Send us a Message</h3>
               <form className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">First Name</label>
-                    <input type="text" className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" />
+                    <label className="block text-sm font-medium text-gray-200 mb-2">First Name</label>
+                    <input type="text" className="w-full px-4 py-3 border border-gray-500 rounded-lg bg-transparent text-white placeholder-gray-400 focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="First Name" />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Last Name</label>
-                    <input type="text" className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" />
+                    <label className="block text-sm font-medium text-gray-200 mb-2">Last Name</label>
+                    <input type="text" className="w-full px-4 py-3 border border-gray-500 rounded-lg bg-transparent text-white placeholder-gray-400 focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Last Name" />
                   </div>
                 </div>
-                
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Email</label>
-                  <input type="email" className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" />
+                  <label className="block text-sm font-medium text-gray-200 mb-2">Email</label>
+                  <input type="email" className="w-full px-4 py-3 border border-gray-500 rounded-lg bg-transparent text-white placeholder-gray-400 focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Email" />
                 </div>
-                
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Phone</label>
-                  <input type="tel" className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" />
+                  <label className="block text-sm font-medium text-gray-200 mb-2">Phone</label>
+                  <input type="tel" className="w-full px-4 py-3 border border-gray-500 rounded-lg bg-transparent text-white placeholder-gray-400 focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Phone" />
                 </div>
-                
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Service Required</label>
-                  <select className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
-                    <option>Select a service</option>
-                    <option>Structural Welding</option>
-                    <option>Custom Fabrication</option>
-                    <option>Repair & Maintenance</option>
-                    <option>Gates & Fencing</option>
-                    <option>Industrial Solutions</option>
-                    <option>Other</option>
+                  <label className="block text-sm font-medium text-gray-200 mb-2">Service Required</label>
+                  <select className="w-full px-4 py-3 border border-gray-500 rounded-lg bg-transparent text-white placeholder-gray-400 focus:ring-2 focus:ring-primary focus:border-transparent">
+                    <option className="text-gray-700 bg-white">Select a service</option>
+                    <option className="text-gray-900 bg-white">Structural Welding</option>
+                    <option className="text-gray-900 bg-white">Custom Fabrication</option>
+                    <option className="text-gray-900 bg-white">Repair & Maintenance</option>
+                    <option className="text-gray-900 bg-white">Gates & Fencing</option>
+                    <option className="text-gray-900 bg-white">Industrial Solutions</option>
+                    <option className="text-gray-900 bg-white">Other</option>
                   </select>
                 </div>
-                
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Project Details</label>
-                  <textarea rows="4" className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"></textarea>
+                  <label className="block text-sm font-medium text-gray-200 mb-2">Project Details</label>
+                  <textarea rows="4" className="w-full px-4 py-3 border border-gray-500 rounded-lg bg-transparent text-white placeholder-gray-400 focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Project Details"></textarea>
                 </div>
-                
                 <button type="submit" className="btn-primary w-full">
                   Send Message
                 </button>
               </form>
             </div>
-            
             {/* Contact Information */}
-            <div className="space-y-8">
+            <div className="bg-[#303849]/80 p-8 rounded-lg shadow-xl space-y-8">
               <div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-6">Get in Touch</h3>
-                <p className="text-gray-600 mb-8">
+                <h3 className="text-2xl font-bold text-white mb-6">Get in Touch</h3>
+                <p className="text-gray-200 mb-8">
                   We're here to help with all your welding and iron work needs. 
                   Contact us today for a free consultation and quote.
                 </p>
               </div>
-              
               <div className="space-y-6">
                 <div className="flex items-start space-x-4">
                   <div className="flex-shrink-0 w-12 h-12 bg-primary rounded-lg flex items-center justify-center">
@@ -531,11 +540,10 @@ export default function Home() {
                     </svg>
                   </div>
                   <div>
-                    <h4 className="text-lg font-semibold text-gray-900 mb-1">Phone</h4>
-                    <p className="text-gray-600">+1 (555) 123-4567</p>
+                    <h4 className="text-lg font-semibold text-white mb-1">Phone</h4>
+                    <p className="text-gray-200">+94 70 311 4427</p>
                   </div>
                 </div>
-                
                 <div className="flex items-start space-x-4">
                   <div className="flex-shrink-0 w-12 h-12 bg-primary rounded-lg flex items-center justify-center">
                     <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -543,11 +551,10 @@ export default function Home() {
                     </svg>
                   </div>
                   <div>
-                    <h4 className="text-lg font-semibold text-gray-900 mb-1">Email</h4>
-                    <p className="text-gray-600">info@rangaironwork.com</p>
+                    <h4 className="text-lg font-semibold text-white mb-1">Email</h4>
+                    <p className="text-gray-200">info@rangaironwork.com</p>
                   </div>
                 </div>
-                
                 <div className="flex items-start space-x-4">
                   <div className="flex-shrink-0 w-12 h-12 bg-primary rounded-lg flex items-center justify-center">
                     <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -556,11 +563,10 @@ export default function Home() {
                     </svg>
                   </div>
                   <div>
-                    <h4 className="text-lg font-semibold text-gray-900 mb-1">Address</h4>
-                    <p className="text-gray-600">123 Industrial Way<br />Workshop District<br />City, State 12345</p>
+                    <h4 className="text-lg font-semibold text-white mb-1">Address</h4>
+                    <p className="text-gray-200">315/2,<br />Rajawella<br />Digana, Sri Lanka</p>
                   </div>
                 </div>
-                
                 <div className="flex items-start space-x-4">
                   <div className="flex-shrink-0 w-12 h-12 bg-primary rounded-lg flex items-center justify-center">
                     <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -568,8 +574,8 @@ export default function Home() {
                     </svg>
                   </div>
                   <div>
-                    <h4 className="text-lg font-semibold text-gray-900 mb-1">Business Hours</h4>
-                    <p className="text-gray-600">Monday - Friday: 8:00 AM - 6:00 PM<br />Saturday: 9:00 AM - 4:00 PM<br />Sunday: Closed</p>
+                    <h4 className="text-lg font-semibold text-white mb-1">Business Hours</h4>
+                    <p className="text-gray-200">Monday - Friday: 8:00 AM - 6:00 PM<br />Saturday: 9:00 AM - 4:00 PM<br />Sunday: Closed</p>
                   </div>
                 </div>
               </div>
@@ -619,10 +625,10 @@ export default function Home() {
             <div>
               <h4 className="text-lg font-semibold mb-4">Contact</h4>
               <ul className="space-y-2 text-gray-300">
-                <li>+1 (555) 123-4567</li>
+                <li>+94 70 311 4427</li>
                 <li>info@rangaironwork.com</li>
-                <li>123 Industrial Way</li>
-                <li>Workshop District</li>
+                <li>315/2, Rajawella</li>
+                <li>Digana, Sri Lanka</li>
               </ul>
             </div>
           </div>
