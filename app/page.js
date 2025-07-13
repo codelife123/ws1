@@ -54,68 +54,53 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="section-padding bg-gray-light">
+      <section id="about" className="section-padding bg-white" style={{ minHeight: '100vh' }}>
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">About Ranga Iron Work</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <div className="mb-16 text-left">
+            <h2 className="text-4xl font-extrabold text-primary mb-4 uppercase">About <span className="text-[color:var(--color-accent)]">Ranga Iron Work</span></h2>
+            <p className="text-xl text-gray-700 max-w-3xl">
               We are a professional welding and iron workshop dedicated to delivering high-quality metal fabrication services.
             </p>
           </div>
-          
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <h3 className="text-3xl font-bold text-gray-900 mb-6">Why Choose Us?</h3>
-              <div className="space-y-6">
-                <div className="flex items-start space-x-4">
-                  <div className="flex-shrink-0 w-12 h-12 bg-primary rounded-lg flex items-center justify-center">
-                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h4 className="text-xl font-semibold text-gray-900 mb-2">Expert Craftsmanship</h4>
-                    <p className="text-gray-600">Years of experience in metal fabrication and welding techniques.</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start space-x-4">
-                  <div className="flex-shrink-0 w-12 h-12 bg-primary rounded-lg flex items-center justify-center">
-                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h4 className="text-xl font-semibold text-gray-900 mb-2">Timely Delivery</h4>
-                    <p className="text-gray-600">We complete projects on schedule without compromising quality.</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start space-x-4">
-                  <div className="flex-shrink-0 w-12 h-12 bg-primary rounded-lg flex items-center justify-center">
-                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h4 className="text-xl font-semibold text-gray-900 mb-2">Customer Satisfaction</h4>
-                    <p className="text-gray-600">We prioritize customer satisfaction and build long-term relationships.</p>
-                  </div>
-                </div>
+            {/* Left: Image (founder) */}
+            <div className="flex justify-center">
+              <div className="rounded-xl overflow-hidden shadow-2xl border border-gray-200 bg-gray-100 max-w-xl w-full">
+                <img src="/founder01.jpg" alt="About Ranga Iron Work Founder" className="object-cover w-full h-[40rem] sm:h-[32rem] md:h-[36rem] lg:h-[40rem]" />
               </div>
             </div>
-            
-            <div className="bg-white p-8 rounded-lg shadow-lg">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Our Story</h3>
-              <p className="text-gray-600 mb-4">
-                Founded with a passion for quality metalwork, Ranga Iron Work has been serving our community 
-                with professional welding and fabrication services for years.
-              </p>
-              <p className="text-gray-600 mb-6">
-                We specialize in structural welding, custom metal fabrication, and industrial solutions, 
-                ensuring every project meets the highest standards of quality and safety.
-              </p>
-              <div className="grid grid-cols-2 gap-4">
+            {/* Right: Content */}
+            <div>
+              <h3 className="text-2xl font-extrabold text-primary mb-6 uppercase">Why <span className="text-[color:var(--color-accent)]">Choose Us</span></h3>
+              <ul className="space-y-5 mb-8">
+                <li className="flex items-start">
+                  <span className="inline-block mt-1 mr-3 text-[color:var(--color-accent)]">
+                    <svg width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="10" stroke="currentColor" strokeWidth="2" fill="none"/><path d="M7 11l3 3 6-6" stroke="currentColor" strokeWidth="2" fill="none"/></svg>
+                  </span>
+                  <span className="text-gray-700 text-lg">Superior precise quality welds</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="inline-block mt-1 mr-3 text-[color:var(--color-accent)]">
+                    <svg width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="10" stroke="currentColor" strokeWidth="2" fill="none"/><path d="M7 11l3 3 6-6" stroke="currentColor" strokeWidth="2" fill="none"/></svg>
+                  </span>
+                  <span className="text-gray-700 text-lg">Welds can be made with little or no filler</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="inline-block mt-1 mr-3 text-[color:var(--color-accent)]">
+                    <svg width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="10" stroke="currentColor" strokeWidth="2" fill="none"/><path d="M7 11l3 3 6-6" stroke="currentColor" strokeWidth="2" fill="none"/></svg>
+                  </span>
+                  <span className="text-gray-700 text-lg">Precise control of welding variables</span>
+                </li>
+              </ul>
+              <div className="text-gray-600 text-base leading-relaxed">
+                <p className="mb-4">
+                  Founded with a passion for quality metalwork, Ranga Iron Work has been serving our community with professional welding and fabrication services for years.
+                </p>
+                <p>
+                  We specialize in structural welding, custom metal fabrication, and industrial solutions, ensuring every project meets the highest standards of quality and safety.
+                </p>
+              </div>
+              <div className="grid grid-cols-2 gap-4 mt-8">
                 <div className="text-center">
                   <div className="text-3xl font-bold text-primary">500+</div>
                   <div className="text-gray-600">Projects Completed</div>
