@@ -1,6 +1,66 @@
+"use client";
+
 import Image from "next/image";
+import "keen-slider/keen-slider.min.css";
+import { useState } from "react";
+import Lightbox from "yet-another-react-lightbox";
+import "yet-another-react-lightbox/styles.css";
+import { useKeenSlider } from "keen-slider/react";
+
+const galleryImages = [
+  { src: "/project-work/image1.jpg" },
+  { src: "/project-work/image2.jpg" },
+  { src: "/project-work/image3.jpg" },
+  { src: "/project-work/image4.jpg" },
+  { src: "/project-work/image5.jpg" },
+  { src: "/project-work/image6.jpg" },
+];
 
 export default function Home() {
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [lightboxIndex, setLightboxIndex] = useState(0);
+  const [sliderRef, instanceRef] = useKeenSlider({
+    loop: true,
+    slides: { perView: 3, spacing: 24 },
+    mode: "snap",
+    breakpoints: {
+      "(max-width: 1024px)": { slides: { perView: 2, spacing: 16 } },
+      "(max-width: 640px)": { slides: { perView: 1, spacing: 8 } },
+    },
+    slideChanged(slider) {
+      setLightboxIndex(slider.track.details.rel);
+    },
+    created(slider) {
+      // Autoplay
+      let timeout;
+      let mouseOver = false;
+      function clearNextTimeout() {
+        clearTimeout(timeout);
+      }
+      function nextTimeout() {
+        clearTimeout(timeout);
+        if (mouseOver) return;
+        timeout = setTimeout(() => {
+          slider.next();
+        }, 3500);
+      }
+      slider.on("created", () => {
+        slider.container.addEventListener("mouseover", () => {
+          mouseOver = true;
+          clearNextTimeout();
+        });
+        slider.container.addEventListener("mouseout", () => {
+          mouseOver = false;
+          nextTimeout();
+        });
+        nextTimeout();
+      });
+      slider.on("dragStarted", clearNextTimeout);
+      slider.on("animationEnded", nextTimeout);
+      slider.on("updated", nextTimeout);
+    },
+  });
+
   return (
     <div className="min-h-screen">
       {/* Navigation */}
@@ -258,34 +318,69 @@ export default function Home() {
       </section>
 
       {/* Gallery Section */}
-      <section id="gallery" className="section-padding bg-gray-light">
+      <section id="gallery" className="section-padding bg-white flex flex-col justify-center" style={{ minHeight: 'calc(100vh - 64px)' }}>
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Work Gallery</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Browse through our portfolio of completed projects showcasing our expertise and craftsmanship.
-            </p>
+            <h2 className="text-4xl font-extrabold text-primary mb-2 tracking-wide font-anton">
+              OUR <span className="text-[color:var(--color-accent)]">GALLERY</span>
+            </h2>
+            <div className="w-24 h-1 mx-auto bg-[color:var(--color-accent)] mb-4 rounded-full"></div>
           </div>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {/* Gallery items - placeholder images */}
-            {[1, 2, 3, 4, 5, 6].map((item) => (
-              <div key={item} className="bg-white rounded-lg overflow-hidden shadow-lg card-hover">
-                <div className="h-64 bg-gray-300 flex items-center justify-center">
-                  <div className="text-center">
-                    <svg className="w-16 h-16 text-gray-400 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                    </svg>
-                    <p className="text-gray-500">Project {item}</p>
-                  </div>
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">Welding Project {item}</h3>
-                  <p className="text-gray-600">Professional welding and fabrication work completed with precision and quality.</p>
-                </div>
+          <div ref={sliderRef} className="keen-slider">
+            {galleryImages.map((img, idx) => (
+              <div
+                key={img.src}
+                className="keen-slider__slide flex items-center justify-center cursor-pointer"
+                style={{ minHeight: 320 }}
+                onClick={() => {
+                  setLightboxIndex(idx);
+                  setLightboxOpen(true);
+                }}
+              >
+                <img
+                  src={img.src}
+                  alt={`Gallery image ${idx + 1}`}
+                  className="rounded-xl shadow-lg object-cover w-full h-80 max-h-[22rem] max-w-full"
+                  style={{ aspectRatio: '4/3', objectFit: 'cover' }}
+                />
               </div>
             ))}
           </div>
+          {/* Carousel Arrows */}
+          <div className="flex justify-center gap-6 mt-6">
+            <button
+              className="rounded-full bg-[color:var(--color-primary)] text-white w-10 h-10 flex items-center justify-center hover:bg-[color:var(--color-accent)] hover:text-[color:var(--color-primary)] transition"
+              onClick={() => instanceRef.current?.prev()}
+              aria-label="Previous"
+            >
+              <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M15 19l-7-7 7-7" /></svg>
+            </button>
+            <button
+              className="rounded-full bg-[color:var(--color-primary)] text-white w-10 h-10 flex items-center justify-center hover:bg-[color:var(--color-accent)] hover:text-[color:var(--color-primary)] transition"
+              onClick={() => instanceRef.current?.next()}
+              aria-label="Next"
+            >
+              <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" /></svg>
+            </button>
+          </div>
+          {/* Carousel Dots */}
+          <div className="flex justify-center gap-2 mt-4">
+            {galleryImages.map((_, idx) => (
+              <button
+                key={idx}
+                className={`w-3 h-3 rounded-full border-2 border-[color:var(--color-accent)] ${lightboxIndex === idx ? 'bg-[color:var(--color-accent)]' : 'bg-white'}`}
+                onClick={() => instanceRef.current?.moveToIdx(idx)}
+                aria-label={`Go to slide ${idx + 1}`}
+              />
+            ))}
+          </div>
+          <Lightbox
+            open={lightboxOpen}
+            close={() => setLightboxOpen(false)}
+            slides={galleryImages.map((img) => ({ src: img.src }))}
+            index={lightboxIndex}
+            on={{ view: ({ index }) => setLightboxIndex(index) }}
+          />
         </div>
       </section>
 
