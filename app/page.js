@@ -1,85 +1,12 @@
 "use client";
 
 import Image from "next/image";
-import "keen-slider/keen-slider.min.css";
-import { useState, useRef } from "react";
-import Lightbox from "yet-another-react-lightbox";
-import "yet-another-react-lightbox/styles.css";
-import { useKeenSlider } from "keen-slider/react";
-import Video from "yet-another-react-lightbox/plugins/video";
 import GallerySection2 from './GallerySection2';
 
 
 export default function Home() {
-  const [lightboxOpen, setLightboxOpen] = useState(false);
-  const [lightboxIndex, setLightboxIndex] = useState(0);
-  const [playingVideos, setPlayingVideos] = useState(new Set());
-  const videoRefs = useRef({});
-
-  const handleVideoPlay = (videoIndex) => {
-    // Stop all other videos
-    const newPlayingVideos = new Set([videoIndex]);
-    setPlayingVideos(newPlayingVideos);
-    
-    // Pause carousel autoplay
-    if (instanceRef.current) {
-      instanceRef.current.container.dispatchEvent(new Event('mouseover'));
-    }
-  };
-
-  const handleVideoPause = (videoIndex) => {
-    // Remove this video from playing set
-    const newPlayingVideos = new Set(playingVideos);
-    newPlayingVideos.delete(videoIndex);
-    setPlayingVideos(newPlayingVideos);
-    
-    // Resume carousel autoplay if no videos are playing
-    if (newPlayingVideos.size === 0 && instanceRef.current) {
-      instanceRef.current.container.dispatchEvent(new Event('mouseout'));
-    }
-  };
-
-  const [sliderRef, instanceRef] = useKeenSlider({
-    loop: true,
-    slides: { perView: 3, spacing: 24 },
-    mode: "snap",
-    breakpoints: {
-      "(max-width: 1024px)": { slides: { perView: 2, spacing: 16 } },
-      "(max-width: 640px)": { slides: { perView: 1, spacing: 8 } },
-    },
-    slideChanged(slider) {
-      setLightboxIndex(slider.track.details.rel);
-    },
-    created(slider) {
-      // Autoplay
-      let timeout;
-      let mouseOver = false;
-      function clearNextTimeout() {
-        clearTimeout(timeout);
-      }
-      function nextTimeout() {
-        clearTimeout(timeout);
-        if (mouseOver) return;
-        timeout = setTimeout(() => {
-          slider.next();
-        }, 3500);
-      }
-      slider.on("created", () => {
-        slider.container.addEventListener("mouseover", () => {
-          mouseOver = true;
-          clearNextTimeout();
-        });
-        slider.container.addEventListener("mouseout", () => {
-          mouseOver = false;
-          nextTimeout();
-        });
-        nextTimeout();
-      });
-      slider.on("dragStarted", clearNextTimeout);
-      slider.on("animationEnded", nextTimeout);
-      slider.on("updated", nextTimeout);
-    },
-  });
+  // Remove all state, refs, handlers, and useKeenSlider block related to the old gallery
+  // Only keep the code for the other sections and <GallerySection2 />
 
   return (
     <div className="min-h-screen">
