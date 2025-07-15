@@ -10,6 +10,7 @@ import 'yet-another-react-lightbox/styles.css';
 import 'swiper/css';
 import 'swiper/css/autoplay';
 import 'swiper/css/pagination';
+import NextImage from 'next/image';
 
 const slides = [
   { src: "/project-work/image9.jpg" },
@@ -103,6 +104,23 @@ export default function GallerySection() {
           plugins={[Video, Slideshow]}
           slideshow={{ autoplay: true, delay: 3000 }}
           on={{ view: ({ index }) => setIndex(index) }}
+          render={{
+            slide: ({ slide, rect }) =>
+              !slide.type || slide.type === 'image' ? (
+                <NextImage
+                  src={slide.src}
+                  alt={slide.alt || ''}
+                  fill
+                  style={{
+                    objectFit: 'contain',
+                    maxWidth: '100%',
+                    maxHeight: '100%',
+                  }}
+                  sizes="(max-width: 768px) 100vw, 80vw"
+                  priority
+                />
+              ) : undefined,
+          }}
         />
       </div>
     </section>
