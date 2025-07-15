@@ -6,7 +6,6 @@ import Video from 'yet-another-react-lightbox/plugins/video';
 import Slideshow from 'yet-another-react-lightbox/plugins/slideshow';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination } from 'swiper/modules';
-
 import 'yet-another-react-lightbox/styles.css';
 import 'swiper/css';
 import 'swiper/css/autoplay';
@@ -32,7 +31,7 @@ const slides = [
   { src: "/project-work/image10.jpg" },
 ];
 
-export default function GallerySection2() {
+export default function GallerySection() {
   const [open, setOpen] = useState(false);
   const [index, setIndex] = useState(0);
 
@@ -45,7 +44,6 @@ export default function GallerySection2() {
           </h2>
           <div className="w-24 h-1 mx-auto bg-[color:var(--color-accent)] mb-4 rounded-full"></div>
         </div>
-
         {/* Swiper Carousel for Gallery Grid */}
         <Swiper
           modules={[Autoplay, Pagination]}
@@ -97,7 +95,6 @@ export default function GallerySection2() {
             </SwiperSlide>
           ))}
         </Swiper>
-
         <Lightbox
           open={open}
           close={() => setOpen(false)}
