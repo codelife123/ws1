@@ -84,3 +84,27 @@ html {
 .card-hover {
   @apply transition-all duration-300 hover:shadow-xl hover:-translate-y-2;
 }
+
+/* Swiper pagination below the carousel and brand color */
+.swiper-pagination {
+  position: static !important;
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+.swiper-pagination-bullet {
+  background: #f2c014 !important;
+  opacity: 1 !important;
+}
+.swiper-pagination-bullet-active {
+  background: #303849 !important;
+}
+
+@media (min-width: 1024px) {
+  #gallery2 {
+    min-height: calc(100vh - 64px);
+    display: flex;
+    align-items: center;
+  }
+}

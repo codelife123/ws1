@@ -7,19 +7,8 @@ import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 import { useKeenSlider } from "keen-slider/react";
 import Video from "yet-another-react-lightbox/plugins/video";
+import GallerySection2 from './GallerySection2';
 
-const galleryImages = [
-  { src: "/project-work/image9.jpg" },
-  { src: "/project-work/video1.mp4", type: "video" },
-  { src: "/project-work/image2.jpg" },
-  { src: "/project-work/image3.jpg" },
-  { src: "/project-work/image4.jpg" },
-  { src: "/project-work/image5.jpg" },
-  { src: "/project-work/image6.jpg" },
-  { src: "/project-work/image8.jpg" },
-  { src: "/project-work/image1.jpg" },
-  { src: "/project-work/image10.jpg" },
-];
 
 export default function Home() {
   const [lightboxOpen, setLightboxOpen] = useState(false);
@@ -348,114 +337,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Gallery Section */}
-      <section id="gallery" className="section-padding bg-white flex flex-col justify-center" style={{ minHeight: 'calc(100vh - 64px)' }}>
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-extrabold text-primary mb-2 tracking-wide font-anton">
-              OUR <span className="text-[color:var(--color-accent)]">GALLERY</span>
-            </h2>
-            <div className="w-24 h-1 mx-auto bg-[color:var(--color-accent)] mb-4 rounded-full"></div>
-          </div>
-          <div ref={sliderRef} className="keen-slider">
-            {galleryImages.map((img, idx) => (
-              <div
-                key={img.src}
-                className="keen-slider__slide flex items-center justify-center cursor-pointer"
-                style={{ minHeight: 320 }}
-                onClick={() => {
-                  if (img.type !== "video") {
-                    setLightboxIndex(idx);
-                    setLightboxOpen(true);
-                  }
-                }}
-              >
-                {img.type === "video" ? (
-                  <div className="relative w-full h-80 max-h-[22rem] max-w-full flex items-center justify-center bg-black rounded-xl">
-                    <video
-                      ref={(el) => {
-                        if (el) videoRefs.current[idx] = el;
-                      }}
-                      src={img.src}
-                      className="object-cover w-full h-80 max-h-[22rem] rounded-xl"
-                      style={{ aspectRatio: '4/3', objectFit: 'cover' }}
-                      preload="metadata"
-                      muted
-                      playsInline
-                      controls={playingVideos.has(idx)}
-                      onPlay={() => handleVideoPlay(idx)}
-                      onPause={() => handleVideoPause(idx)}
-                      onEnded={() => handleVideoPause(idx)}
-                    />
-                    {!playingVideos.has(idx) && (
-                      <div 
-                        className="absolute inset-0 flex items-center justify-center cursor-pointer"
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          if (videoRefs.current[idx]) {
-                            videoRefs.current[idx].play();
-                          }
-                        }}
-                      >
-                        <svg width="64" height="64" viewBox="0 0 64 64" fill="none" className="drop-shadow-lg">
-                          <circle cx="32" cy="32" r="32" fill="rgba(48,56,73,0.7)" />
-                          <polygon points="26,20 48,32 26,44" fill="#f2c014" />
-                        </svg>
-                      </div>
-                    )}
-                  </div>
-                ) : (
-                  <div className="relative w-full aspect-[4/3] max-h-[22rem] max-w-full">
-                    <img
-                      src={img.src}
-                      alt={`Gallery image ${idx + 1}`}
-                      className="rounded-xl shadow-lg object-cover w-full h-80 max-h-[22rem] max-w-full"
-                      style={{ aspectRatio: '4/3', objectFit: 'cover' }}
-                      onError={(e) => { e.target.src = '/fallback.jpg'; }}
-                    />
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-          {/* Carousel Arrows */}
-          <div className="flex justify-center gap-6 mt-6">
-            <button
-              className="rounded-full bg-[color:var(--color-primary)] text-white w-10 h-10 flex items-center justify-center hover:bg-[color:var(--color-accent)] hover:text-[color:var(--color-primary)] transition"
-              onClick={() => instanceRef.current?.prev()}
-              aria-label="Previous"
-            >
-              <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M15 19l-7-7 7-7" /></svg>
-            </button>
-            <button
-              className="rounded-full bg-[color:var(--color-primary)] text-white w-10 h-10 flex items-center justify-center hover:bg-[color:var(--color-accent)] hover:text-[color:var(--color-primary)] transition"
-              onClick={() => instanceRef.current?.next()}
-              aria-label="Next"
-            >
-              <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" /></svg>
-            </button>
-          </div>
-          {/* Carousel Dots */}
-          <div className="flex justify-center gap-2 mt-4">
-            {galleryImages.map((_, idx) => (
-              <button
-                key={idx}
-                className={`w-3 h-3 rounded-full border-2 border-[color:var(--color-accent)] ${lightboxIndex === idx ? 'bg-[color:var(--color-accent)]' : 'bg-white'}`}
-                onClick={() => instanceRef.current?.moveToIdx(idx)}
-                aria-label={`Go to slide ${idx + 1}`}
-              />
-            ))}
-          </div>
-          <Lightbox
-            open={lightboxOpen}
-            close={() => setLightboxOpen(false)}
-            slides={galleryImages.map((img) => img.type === "video" ? { type: "video", src: img.src } : { src: img.src })}
-            index={lightboxIndex}
-            on={{ view: ({ index }) => setLightboxIndex(index) }}
-            plugins={[Video]}
-          />
-        </div>
-      </section>
+      {/* New Gallery Section 2 */}
+      <GallerySection2 />
 
       {/* Contact Section */}
       <section
