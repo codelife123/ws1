@@ -13,10 +13,10 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Ranga Iron Works - Professional Welding & Iron Workshop",
-  description: "Professional welding and iron work services. Custom metal fabrication, structural welding, and industrial solutions. Quality workmanship you can trust.",
-  keywords: "welding, iron works, metal fabrication, structural welding, industrial welding, custom metal work",
-  authors: [{ name: "Ranga Iron Works" }],
+  title: "Ranga ArcTech - Professional Welding & Iron Workshop",
+  description: "Professional welding and iron work services. Custom metal fabrication, structural welding, and industrial solutions. Quality workmanship you can trust from Ranga ArcTech.",
+  keywords: "welding, iron works, metal fabrication, structural welding, industrial welding, custom metal work, Ranga ArcTech",
+  authors: [{ name: "Ranga ArcTech" }],
 };
 
 export const viewport = {
