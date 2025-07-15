@@ -125,15 +125,15 @@ export default function Home() {
           </div>
         </div>
       </section>
-
+      
+      {/* Services Section */}
+      <DynamicServiceSection />
+      
       {/* New Gallery Section 2 */}
       <DynamicGallerySection />
 
       {/* Contact Section */}
       <DynamicContactSection />
-
-      {/* Services Section */}
-      <DynamicServiceSection />
 
       {/* Footer */}
       <DynamicFooter />

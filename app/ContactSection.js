@@ -87,7 +87,7 @@ export default function ContactSection() {
                 </div>
                 <div>
                   <h4 className="text-lg font-semibold text-white mb-1">Phone</h4>
-                  <p className="text-gray-200">+1 (555) 123-4567</p>
+                  <p className="text-gray-200">+94 70 311 4427</p>
                 </div>
               </div>
               <div className="flex items-start space-x-4">
@@ -98,7 +98,7 @@ export default function ContactSection() {
                 </div>
                 <div>
                   <h4 className="text-lg font-semibold text-white mb-1">Email</h4>
-                  <p className="text-gray-200">info@rangaironwork.com</p>
+                  <p className="text-gray-200">rangaironworkinfo@gmail.com</p>
                 </div>
               </div>
               <div className="flex items-start space-x-4">
@@ -110,7 +110,7 @@ export default function ContactSection() {
                 </div>
                 <div>
                   <h4 className="text-lg font-semibold text-white mb-1">Address</h4>
-                  <p className="text-gray-200">123 Industrial Way<br />Workshop District<br />City, State 12345</p>
+                  <p className="text-gray-200">315/2 Rajawella, Digana<br />Kandy, Sri Lanka</p>
                 </div>
               </div>
               <div className="flex items-start space-x-4">
