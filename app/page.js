@@ -77,7 +77,14 @@ export default function Home() {
             {/* Left: Image (founder) */}
             <div className="flex justify-center">
               <div className="rounded-xl overflow-hidden shadow-2xl border border-gray-200 bg-gray-100 max-w-xl w-full">
-                <img src="/founder01.jpg" alt="About Ranga ArcTech Founder" className="object-cover w-full h-[40rem] sm:h-[32rem] md:h-[36rem] lg:h-[40rem]" />
+                <Image
+                  src="/founder01.jpg"
+                  alt="Ranga ArcTech Founder welding at the workshop"
+                  width={600}
+                  height={640}
+                  className="object-cover w-full h-[40rem] sm:h-[32rem] md:h-[36rem] lg:h-[40rem]"
+                  priority
+                />
               </div>
             </div>
             {/* Right: Content */}
