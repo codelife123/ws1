@@ -59,7 +59,7 @@ export default function RootLayout({ children }) {
           },
           "sameAs": [
             "https://web.facebook.com/RangaArcTech",
-            "https://youtube.com/%40RangaArcTech"
+            "https://youtube.com/@RangaArcTech"
           ]
         }` }} />
       </head>
