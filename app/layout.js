@@ -58,8 +58,8 @@ export default function RootLayout({ children }) {
             "addressCountry": "Sri Lanka"
           },
           "sameAs": [
-            "https://web.facebook.com/RangaArcTech",
-            "https://youtube.com/@RangaArcTech"
+            "http://www.facebook.com/RangaArcTech",
+            "https://www.youtube.com/@RangaArcTech"
           ]
         }` }} />
       </head>

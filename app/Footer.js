@@ -29,7 +29,7 @@ export default function Footer() {
             {/* Social icons below address */}
             <div className="flex space-x-4 mt-4">
               {/* Facebook */}
-              <a href="https://facebook.com/rangaironwork" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
+              <a href="http://www.facebook.com/RangaArcTech" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
                 <div className="w-12 h-12 bg-[#1877F3] rounded-full flex items-center justify-center shadow hover:scale-110 transition-transform">
                   <svg className="w-8 h-8" fill="white" viewBox="0 0 24 24">
                     <path d="M17.525 8.998h-2.243V7.64c0-.522.343-.645.584-.645h1.624V4.527L15.3 4.52c-2.617 0-3.217 1.96-3.217 3.217v1.261H9.001v2.62h3.082v6.855h3.199V11.62h2.147l.342-2.622z"/>
@@ -37,7 +37,7 @@ export default function Footer() {
                 </div>
               </a>
               {/* YouTube */}
-              <a href="https://youtube.com/@RangaIronworks" aria-label="YouTube" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.youtube.com/@RangaArcTech" aria-label="YouTube" target="_blank" rel="noopener noreferrer">
                 <div className="w-12 h-12 bg-[#FF0000] rounded-full flex items-center justify-center shadow hover:scale-110 transition-transform">
                   <svg className="w-8 h-8" fill="white" viewBox="0 0 24 24">
                     <path d="M23.498 6.186a2.994 2.994 0 0 0-2.107-2.117C19.24 3.5 12 3.5 12 3.5s-7.24 0-9.391.569A2.994 2.994 0 0 0 .502 6.186C0 8.338 0 12 0 12s0 3.662.502 5.814a2.994 2.994 0 0 0 2.107 2.117C4.76 20.5 12 20.5 12 20.5s7.24 0 9.391-.569a2.994 2.994 0 0 0 2.107-2.117C24 15.662 24 12 24 12s0-3.662-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
