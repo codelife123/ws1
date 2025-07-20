@@ -15,6 +15,42 @@
   <url>
     <loc>https://www.rangaarctech.com/#gallery</loc>
     <priority>0.8</priority>
+    <image:image xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+      <image:loc>https://www.rangaarctech.com/project-work/image1.jpg</image:loc>
+      <image:caption>Custom iron gate fabrication at Ranga ArcTech workshop</image:caption>
+    </image:image>
+    <image:image xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+      <image:loc>https://www.rangaarctech.com/project-work/image2.jpg</image:loc>
+      <image:caption>Steel staircase welding project in Kandy, Sri Lanka</image:caption>
+    </image:image>
+    <image:image xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+      <image:loc>https://www.rangaarctech.com/project-work/image3.jpg</image:loc>
+      <image:caption>Decorative metalwork for residential property</image:caption>
+    </image:image>
+    <image:image xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+      <image:loc>https://www.rangaarctech.com/project-work/image4.jpg</image:loc>
+      <image:caption>Industrial welding and fabrication by Ranga ArcTech</image:caption>
+    </image:image>
+    <image:image xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+      <image:loc>https://www.rangaarctech.com/project-work/image5.jpg</image:loc>
+      <image:caption>Custom steel railing installation project</image:caption>
+    </image:image>
+    <image:image xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+      <image:loc>https://www.rangaarctech.com/project-work/image6.jpg</image:loc>
+      <image:caption>Heavy-duty metal fabrication for commercial use</image:caption>
+    </image:image>
+    <image:image xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+      <image:loc>https://www.rangaarctech.com/project-work/image8.jpg</image:loc>
+      <image:caption>Modern iron fence and gate project by Ranga ArcTech</image:caption>
+    </image:image>
+    <image:image xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+      <image:loc>https://www.rangaarctech.com/project-work/image9.jpg</image:loc>
+      <image:caption>Precision welding for structural steelwork</image:caption>
+    </image:image>
+    <image:image xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+      <image:loc>https://www.rangaarctech.com/project-work/image10.jpg</image:loc>
+      <image:caption>Custom metal fabrication and installation in Sri Lanka</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.rangaarctech.com/#contact</loc>
